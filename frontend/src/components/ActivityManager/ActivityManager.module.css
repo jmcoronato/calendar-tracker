@@ -1,0 +1,217 @@
+.activityManager {
+  padding: 1rem;
+}
+
+.addActivity {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.addActivity input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.addActivity input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-alpha);
+  transform: translateY(-1px);
+}
+
+.addActivity input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.inputError {
+  border-color: #dc3545 !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25) !important;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.addActivity button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.addActivity button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+}
+
+.addActivity button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.addActivity button:hover::before {
+  left: 100%;
+}
+
+.addActivity button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.currentActivity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.currentActivityLabel {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.currentActivityLabel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 70%;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  border-radius: 3px;
+}
+
+.activitySelect {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .activitySelect {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
+
+.activitySelect:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-alpha);
+  transform: translateY(-1px);
+}
+
+.activitySelect:hover {
+  border-color: var(--accent-primary);
+  background-color: var(--button-hover);
+}
+
+.activityActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  padding: 0.6rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+
+.actionButton:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.editButton:hover {
+  background-color: var(--accent-primary-alpha);
+  border-radius: 50%;
+  color: var(--accent-primary);
+}
+
+.deleteButton:hover {
+  background-color: rgba(220, 53, 69, 0.2);
+  border-radius: 50%;
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .currentActivity {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .activitySelect {
+    width: 100%;
+  }
+
+  .activityActions {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addActivity {
+    flex-direction: column;
+  }
+
+  .addActivity button {
+    width: 100%;
+  }
+}

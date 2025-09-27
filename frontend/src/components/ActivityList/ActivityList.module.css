@@ -1,0 +1,114 @@
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.addActivity {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.addActivity input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.addActivity input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-primary-alpha);
+}
+
+.addActivity button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.addActivity button:hover {
+  background-color: var(--accent-secondary);
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.activity:hover {
+  background-color: var(--button-hover);
+}
+
+.activity.selected {
+  background-color: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-secondary);
+}
+
+.activity.selected:hover {
+  background-color: var(--accent-secondary);
+}
+
+.activityName {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.activity.selected .activityName {
+  color: white;
+}
+
+.activityActions {
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.activity:hover .activityActions {
+  opacity: 1;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.actionButton:hover {
+  color: var(--text-primary);
+}
+
+.activity.selected .actionButton {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.activity.selected .actionButton:hover {
+  color: white;
+} 

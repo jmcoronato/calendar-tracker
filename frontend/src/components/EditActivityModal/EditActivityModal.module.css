@@ -1,0 +1,240 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.modal {
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  width: 90%;
+  max-width: 500px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.modal h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  border-radius: 3px;
+}
+
+.inputGroup {
+  margin-bottom: 1.75rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-alpha);
+  transform: translateY(-1px);
+}
+
+.inputGroup input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.inputError {
+  border-color: #dc3545 !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25) !important;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid #dc3545;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.cancelButton {
+  padding: 0.85rem 1.75rem;
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--button-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 120px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cancelButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.cancelButton:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.cancelButton:hover::before {
+  left: 100%;
+}
+
+.cancelButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.saveButton {
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 120px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.saveButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+}
+
+.saveButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    to right,
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
+}
+
+.saveButton:hover::before {
+  left: 100%;
+}
+
+.saveButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 1.75rem;
+  }
+
+  .cancelButton,
+  .saveButton {
+    padding: 0.75rem 1.5rem;
+    min-width: 100px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+}

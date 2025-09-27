@@ -1,0 +1,47 @@
+# Root level gitignore for fullstack project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files at root level
+*.log
+
+# Environment files at root level
+.env
+.env.local
+.env.development
+.env.production
+
+# Project specific
+.history/
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Backup files
+*.bak
+*.backup
+
+# Note: Specific node_modules, dist, and other build artifacts
+# are handled by the individual frontend/ and backend/ .gitignore files

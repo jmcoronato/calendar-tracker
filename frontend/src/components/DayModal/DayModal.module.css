@@ -1,0 +1,262 @@
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: var(--bg-primary);
+  padding: 24px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  position: relative;
+  margin: 0 auto;
+}
+
+.closeModal {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.closeModal:hover {
+  color: var(--text-primary);
+}
+
+.modalContent h3 {
+  margin: 0 0 24px 0;
+  color: var(--accent-primary);
+  font-size: 1.4rem;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.activityCheckbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.activityCheckbox:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  border-color: var(--accent-primary-alpha);
+}
+
+.activityCheckbox:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 3px var(--shadow-color);
+}
+
+.activityCheckbox input {
+  margin-right: 15px;
+  transform: scale(1.5);
+  cursor: pointer;
+  accent-color: var(--accent-primary);
+  transition: all 0.2s ease;
+}
+
+.activityCheckbox input:checked {
+  filter: drop-shadow(0 0 2px var(--accent-primary-alpha));
+}
+
+.activityCheckbox label {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 40px);
+}
+
+.activityCheckbox input:checked + label {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modalButtons button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 120px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.modalButtons button:first-child {
+  background: var(--button-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--button-border);
+}
+
+.modalButtons button:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.modalButtons button:first-child:hover {
+  background: var(--button-hover);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.modalButtons button:first-child:hover::before {
+  left: 100%;
+}
+
+.modalButtons button:first-child:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.modalButtons button:last-child {
+  background: linear-gradient(
+    to right,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalButtons button:last-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.modalButtons button:last-child:hover {
+  background: linear-gradient(
+    to right,
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modalButtons button:last-child:hover::before {
+  left: 100%;
+}
+
+.modalButtons button:last-child:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    width: 90%;
+  }
+
+  .modalContent h3 {
+    font-size: 1.2rem;
+  }
+
+  .activityCheckbox {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .activityCheckbox label {
+    font-size: 0.95rem;
+  }
+
+  .modalButtons button {
+    padding: 10px 20px;
+    min-width: 100px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 10px;
+  }
+
+  .modalContent {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .modalContent h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .activityCheckbox {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .activityCheckbox label {
+    font-size: 0.9rem;
+  }
+
+  .activityCheckbox input {
+    transform: scale(1.1);
+    margin-right: 10px;
+  }
+
+  .modalButtons button {
+    padding: 10px 16px;
+    min-width: 90px;
+    font-size: 0.9rem;
+  }
+}
