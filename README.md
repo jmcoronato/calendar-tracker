@@ -4,8 +4,6 @@
 
 CalendarTracker es una aplicación web que te permite crear actividades personalizadas y marcar día a día en un calendario cuáles has completado. Incluye estadísticas detalladas por períodos y un sistema de tema claro/oscuro para una mejor experiencia de usuario.
 
-![CalendarTracker Preview](https://via.placeholder.com/800x400/4f46e5/ffffff?text=CalendarTracker+Preview)
-
 ## 🚀 Características principales
 
 - ✅ **Gestión de actividades**: Crea, edita y elimina actividades personalizadas
