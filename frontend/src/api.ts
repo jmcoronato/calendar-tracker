@@ -3,9 +3,13 @@ export interface ApiActivity {
     name: string;
 }
 
+// tipos para mejor claridad en los datos de seguimiento
+export type DayActivities = Record<number, boolean>;
+export type TrackedData = Record<string, DayActivities>;
+
 export interface ApiStateResponse {
     activities: string[];
-    tracked: Record<string, Record<number, boolean>>;
+    tracked: TrackedData;
 }
 
 async function handleJson<T>(res: Response): Promise<T> {
@@ -73,13 +77,13 @@ export const api = {
     },
 
     // Tracked
-    async getTracked(): Promise<Record<string, Record<number, boolean>>> {
+    async getTracked(): Promise<TrackedData> {
         const res = await fetch(`${base}/api/tracked`, { credentials: "include" });
         return handleJson(res);
     },
     async saveDay(
         dateKey: string,
-        activitiesMap: Record<number, boolean>
+        activitiesMap: DayActivities
     ): Promise<void> {
         const res = await fetch(`${base}/api/tracked/${encodeURIComponent(dateKey)}`, {
             method: "PUT",
