@@ -10,13 +10,13 @@ interface EditActivityModalProps {
   onRenameActivity?: (index: number, name: string) => Promise<void> | void;
 }
 
-export const EditActivityModal: React.FC<EditActivityModalProps> = ({
+export function EditActivityModal({
   activities,
   setActivities,
   editingActivityIndex,
   setEditingActivityIndex,
   onRenameActivity,
-}) => {
+}: EditActivityModalProps) {
   const [editedActivity, setEditedActivity] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -107,4 +107,4 @@ export const EditActivityModal: React.FC<EditActivityModalProps> = ({
       </div>
     </div>
   );
-};
+}

@@ -4,7 +4,7 @@ import googleSvg from "../../assets/google.svg";
 
 const BACKEND_LOGIN_URL = "/api/auth/google"; // proxied por Vite
 
-export const LoginPage: React.FC = () => {
+export function LoginPage() {
   const handleLogin = () => {
     window.location.href = BACKEND_LOGIN_URL;
   };
@@ -29,6 +29,6 @@ export const LoginPage: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default LoginPage;

@@ -5,9 +5,9 @@ interface NoActivitiesModalProps {
   onClose: () => void;
 }
 
-export const NoActivitiesModal: React.FC<NoActivitiesModalProps> = ({
+export function NoActivitiesModal({
   onClose,
-}) => {
+}: NoActivitiesModalProps) {
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -30,4 +30,4 @@ export const NoActivitiesModal: React.FC<NoActivitiesModalProps> = ({
       </div>
     </div>
   );
-};
+}

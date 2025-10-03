@@ -12,7 +12,7 @@ interface ActivityManagerProps {
   onAddActivity?: (name: string) => Promise<void> | void;
 }
 
-export const ActivityManager: React.FC<ActivityManagerProps> = ({
+export function ActivityManager({
   activities,
   setActivities,
   currentActivityIndex,
@@ -20,7 +20,7 @@ export const ActivityManager: React.FC<ActivityManagerProps> = ({
   setEditingActivityIndex,
   setShowDeleteModal,
   onAddActivity,
-}) => {
+}: ActivityManagerProps) {
   const [newActivity, setNewActivity] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -119,4 +119,4 @@ export const ActivityManager: React.FC<ActivityManagerProps> = ({
       </div>
     </div>
   );
-};
+}

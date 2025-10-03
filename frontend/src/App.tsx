@@ -12,7 +12,7 @@ import { NoActivitiesModal } from "./components/NoActivitiesModal/NoActivitiesMo
 import { api } from "./api";
 import LoginPage from "./components/LoginPage/LoginPage";
 
-const App: React.FC = () => {
+function App() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [activities, setActivities] = useState<string[]>([]);
   const [trackedActivities, setTrackedActivities] = useState<TrackedActivities>(
@@ -270,6 +270,6 @@ const App: React.FC = () => {
       )}
     </div>
   );
-};
+}
 
 export default App;

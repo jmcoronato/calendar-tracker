@@ -14,14 +14,14 @@ interface DayModalProps {
   ) => Promise<void> | void;
 }
 
-export const DayModal: React.FC<DayModalProps> = ({
+export function DayModal({
   selectedDateKey,
   activities,
   trackedActivities,
   setTrackedActivities,
   setSelectedDateKey,
   onSaveDay,
-}) => {
+}: DayModalProps) {
   const [year, month, day] = selectedDateKey.split("-").map(Number);
   const date = new Date(year, month, day);
   const [tempTrackedActivities, setTempTrackedActivities] = useState<
@@ -85,4 +85,4 @@ export const DayModal: React.FC<DayModalProps> = ({
       </div>
     </div>
   );
-};
+}

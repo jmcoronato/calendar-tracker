@@ -13,7 +13,7 @@ interface DeleteConfirmModalProps {
   onDeleteActivity?: (index: number) => Promise<void> | void;
 }
 
-export const DeleteConfirmModal: React.FC<DeleteConfirmModalProps> = ({
+export function DeleteConfirmModal({
   activities,
   setActivities,
   trackedActivities,
@@ -22,7 +22,7 @@ export const DeleteConfirmModal: React.FC<DeleteConfirmModalProps> = ({
   setCurrentActivityIndex,
   setShowDeleteModal,
   onDeleteActivity,
-}) => {
+}: DeleteConfirmModalProps) {
   const activityName = activities[currentActivityIndex];
 
   const handleDelete = async () => {
@@ -110,4 +110,4 @@ export const DeleteConfirmModal: React.FC<DeleteConfirmModalProps> = ({
       </div>
     </div>
   );
-};
+}

@@ -24,7 +24,7 @@ interface ActivityStat {
   total: number;
 }
 
-export const Stats: React.FC<StatsProps> = ({
+export function Stats({
   currentDate,
   activities,
   trackedActivities,
@@ -32,7 +32,7 @@ export const Stats: React.FC<StatsProps> = ({
   setActivityStatsView,
   currentActivityIndex,
   setCurrentActivityIndex,
-}) => {
+}: StatsProps) {
   const [onlyWorkdays, setOnlyWorkdays] = React.useState(false);
   const [currentPeriodOffset, setCurrentPeriodOffset] = React.useState(0);
   const [comparisonOffset, setComparisonOffset] = React.useState(1);
@@ -314,7 +314,7 @@ export const Stats: React.FC<StatsProps> = ({
       </div>
     </div>
   );
-};
+}
 
 const isWorkday = (date: Date) => {
   const day = date.getDay();

@@ -11,14 +11,14 @@ interface CalendarProps {
   onDateSelect: (dateKey: string) => void;
 }
 
-export const Calendar: React.FC<CalendarProps> = ({
+export function Calendar({
   currentDate,
   activities,
   trackedActivities,
   onActivityToggle,
   onDateChange,
   onDateSelect,
-}) => {
+}: CalendarProps) {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
@@ -109,7 +109,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       </div>
     </div>
   );
-};
+}
 
 const getDayStatus = (
   dateKey: string,
